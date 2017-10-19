@@ -1,0 +1,60 @@
+@import "node_modules/bulma/sass/utilities/_all";
+@import "node_modules/bulma/sass/grid/columns";
+
+body {
+    font-family: Arial;    
+    background-color: $light;
+}
+
+input {
+    height: 22px;
+    width: 300px;
+    margin-left: 10px;
+}
+
+.master-counter-box {
+    margin: 20px 0 8px;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.task-list {
+    &__header {
+        display: flex;
+        background-color: $grey;
+        color: $white;
+        padding: 15px 20px;
+        
+        &__title {
+            flex: 8;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        &__counter {
+            flex: 2;
+        }
+    }
+}
+
+.counter-box {
+    color: $dark;
+    background-color: $white;
+    padding: 3px 5px;
+    text-align: center;
+    font-weight: bold;
+    width: 60px;
+    &__text {
+        color: $dark;
+        font-weight: normal;
+    }
+}
+
+
+.task {
+    background-color: $white;
+    padding: 20px 15px;
+	margin-bottom: 2px;
+	cursor: 'move';
+}
