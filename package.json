@@ -6,7 +6,7 @@
   "author": "Johnny Su <thuan.suba@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js",
+    "dev": "webpack-dev-server --config webpack.config.js --content-base public/",
     "build": "webpack --config prod.webpack.config.js",
     "test": "jest --coverage",
     "test:watch": "yarn test -- --watch"

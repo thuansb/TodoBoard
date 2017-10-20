@@ -1,5 +1,6 @@
 test-report
 coverage
+public
 
 # Numerous always-ignore extensions
 *.diff
