@@ -28,7 +28,7 @@ class Column extends Component {
         const { connectDropTarget, taskList, moveToTask, title } = this.props;
         return (
             connectDropTarget(
-                <div className="column task-list">
+                <div className="column">
                     <ColumnHeader title={title} count={taskList.length} />
                     <div>
                         {taskList

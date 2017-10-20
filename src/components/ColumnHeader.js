@@ -3,11 +3,11 @@ import CounterBox from './CounterBox';
 
 function ColumnHeader({ title, count }) {
     return (
-        <div className="task-list__header">
-            <div className="task-list__header__title">
+        <div className="column__header">
+            <div className="column__header__title">
                 {title}
             </div>
-            <div className="task-list__header__counter">
+            <div className="column__header__counter">
                 <CounterBox count={count} />
             </div>
         </div>

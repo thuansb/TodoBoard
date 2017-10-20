@@ -1,5 +1,8 @@
-@import "node_modules/bulma/sass/utilities/_all";
-@import "node_modules/bulma/sass/grid/columns";
+$white: white;
+$light: hsl(0, 0%, 96%);
+$grey: grey;
+$black: black;
+$dark: hsl(0, 0%, 21%);
 
 body {
     font-family: Arial;    
@@ -20,22 +23,27 @@ body {
     }
 } 
 
-.task-list {
-    &__header {
-        display: flex;
-        background-color: $grey;
-        color: $white;
-        padding: 15px 20px;
-        
-        &__title {
-            flex: 8;
-            font-weight: bold;
+.columns{
+    display: flex;
+    .column {
+        flex: 1;
+        margin: 0 10px;
+        &__header {
             display: flex;
-            align-items: center;
-        }
-
-        &__counter {
-            flex: 2;
+            background-color: $grey;
+            color: $white;
+            padding: 15px 20px;
+            
+            &__title {
+                flex: 8;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+            }
+    
+            &__counter {
+                flex: 2;
+            }
         }
     }
 }
