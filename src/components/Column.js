@@ -9,9 +9,8 @@ const taskTarget = {
     hover(props, monitor, component) {
         const dragPos = monitor.getItem().pos;
         const { columnType, taskList } = props;
-
         // check empty column
-        if (columnType !== dragPos.status && taskList.length === 0) {
+        if (columnType !== dragPos.status && taskList.length === 0) {            
             props.moveToColumn(dragPos, columnType);
 
             // Update new value of monitor

@@ -6,17 +6,19 @@ body {
     background-color: $light;
 }
 
-input {
-    height: 22px;
-    width: 300px;
-    margin-left: 10px;
-}
+.board {
+    &__counter-box {
+        margin: 20px 0 8px;
+        display: flex;
+        justify-content: flex-end; 
+    }
 
-.master-counter-box {
-    margin: 20px 0 8px;
-    display: flex;
-    justify-content: flex-end; 
-}
+    input {
+        height: 22px;
+        width: 300px;
+        margin-left: 10px;
+    }
+} 
 
 .task-list {
     &__header {
