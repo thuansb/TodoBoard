@@ -9,6 +9,9 @@ const taskSource = {
 		return {
 			pos: props.pos
 		};
+	},
+	isDragging(props, monitor) {
+		return props.pos.id === monitor.getItem().pos.id
 	}
 };
 
@@ -34,10 +37,10 @@ const taskTarget = {
 class Task extends Component {
 	render() {
 		const { isDragging, connectDragSource, connectDropTarget, text } = this.props;
-		const opacity = isDragging ? 0 : 1;
-		return connectDragSource(
-			connectDropTarget(
-				<div className="task" style={{ opacity }}>
+		const bc = isDragging ? '#DDD' : '';
+		return connectDropTarget(
+				connectDragSource(
+				<div className="task" style={{ backgroundColor: bc }}>
 					{text}
 				</div>
 			)

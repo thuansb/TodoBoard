@@ -27,24 +27,22 @@ class Column extends Component {
     render() {
         const { connectDropTarget, taskList, moveToTask, title } = this.props;
         return (
-            <div className="column task-list">
-                <ColumnHeader title={title} count={taskList.length} />
-                {
-                    connectDropTarget(
-                        <div>
-                            {taskList
-                                .map((task) => (
-                                    <Task
-                                        key={task.id}
-                                        pos={{ id: task.id, order: task.order, status: task.status }}
-                                        text={task.text}
-                                        moveToTask={moveToTask}
-                                    />
-                                ))}
-                        </div>
-                    )
-                }
-            </div>
+            connectDropTarget(
+                <div className="column task-list">
+                    <ColumnHeader title={title} count={taskList.length} />
+                    <div>
+                        {taskList
+                            .map((task) => (
+                                <Task
+                                    key={task.id}
+                                    pos={{ id: task.id, order: task.order, status: task.status }}
+                                    text={task.text}
+                                    moveToTask={moveToTask}
+                                />
+                            ))}
+                    </div>
+                </div>
+            )
         )
     }
 }

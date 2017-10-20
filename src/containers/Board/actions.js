@@ -35,9 +35,24 @@ export function moveOverColumn(dragPos, columnType) {
   }
 }
 
-export function fetchTask() {
+function requestFetchTask() {
   return {
     type: FETCH_TASK
+  }
+}
+
+export function fetchTask(url) {
+  return dispatch => {
+    dispatch(requestFetchTask());
+    return fetch(url)
+    .then(
+      response => response.json(),
+      error => dispatch(failedFetchTask({ errorType: 'network', error }))
+    )
+    .then(
+      json => dispatch(succeedFetchTask(json)),
+      error => dispatch(failedFetchTask({ errorType: 'common', error: error.message }))      
+    );
   }
 }
 

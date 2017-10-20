@@ -7,43 +7,6 @@ import {
     FAILED_FETCH_TASK
 } from './actions';
 
-const taskListDefault = [{
-    id: 0,
-    text: 'Write a cool JS library',
-    status: 0,
-    order: 0
-}, {
-    id: 1,
-    text: 'Make it generic enough',
-    status: 0,
-    order: 1
-}, {
-    id: 2,
-    text: 'Write README',
-    status: 1,
-    order: 0
-}, {
-    id: 3,
-    text: 'Create some examples',
-    status: 1,
-    order: 1
-}, {
-    id: 4,
-    text: 'Spam in Twitter and IRC',
-    status: 2,
-    order: 0
-}, {
-    id: 5,
-    text: '???',
-    status: 2,
-    order: 1
-}, {
-    id: 6,
-    text: 'PROFIT',
-    status: 2,
-    order: 2
-}];
-
 const reducer = (state = { taskList: [], fetchingTask: false, fetchError: null }, action) => {
     switch (action.type) {
         case ADD_TASK: {
