@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-import maxBy from 'lodash/maxBy';
 
 class AddNewForm extends Component {
     addTask = (e) => {
         e.preventDefault();
 
-        const { addNewTask, taskList, initStatus } = this.props;
+        const { addNewTask, initStatus } = this.props;
 
-        if (this.inputText.value && this.inputText.value.trim()) {
-            const filtered = taskList.filter(task => task.status === initStatus);
-            const maxOrder = maxBy(filtered, task => task.order);
-            const maxId = maxBy(taskList, task => task.id);
-
-            addNewTask({
-                id: maxId ? maxId.id + 1 : 0,
-                text: this.inputText.value.trim(),
-                order: maxOrder ? maxOrder.order + 1 : 0,
-                status: initStatus
-            })
-
+        if (this.inputText.value && this.inputText.value.trim()) {            
+            addNewTask(this.inputText.value.trim(), initStatus)
             this.inputText.value = '';
         }
     }
@@ -27,7 +16,7 @@ class AddNewForm extends Component {
         return (
             <form onSubmit={this.addTask} >
                 <label>Add Task</label>
-                <input ref={(input) => this.inputText = input} type="text" />
+                <input ref={(input) => this.inputText = input} type="text" placeholder="task name" />
             </form>
         )
     }

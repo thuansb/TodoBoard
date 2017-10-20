@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="counter-box"
+>
+  <div
+    className="counter-box__text"
+  >
+    TASKS
+  </div>
+</div>
+`;

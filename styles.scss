@@ -3,27 +3,26 @@ $light: hsl(0, 0%, 96%);
 $grey: grey;
 $black: black;
 $dark: hsl(0, 0%, 21%);
-
 body {
-    font-family: Arial;    
+    font-family: Arial;
     background-color: $light;
+    padding: 10px;
 }
 
 .board {
     &__counter-box {
-        margin: 20px 0 8px;
+        margin: 20px 15px 8px;
         display: flex;
-        justify-content: space-between; 
+        justify-content: space-between;
     }
-
     input {
         height: 22px;
         width: 300px;
         margin-left: 10px;
     }
-} 
+}
 
-.columns{
+.columns {
     display: flex;
     .column {
         flex: 1;
@@ -33,14 +32,12 @@ body {
             background-color: $grey;
             color: $white;
             padding: 15px 20px;
-            
             &__title {
                 flex: 8;
                 font-weight: bold;
                 display: flex;
                 align-items: center;
             }
-    
             &__counter {
                 flex: 2;
             }
@@ -61,10 +58,9 @@ body {
     }
 }
 
-
 .task {
     background-color: $white;
     padding: 20px 15px;
-	margin-bottom: 2px;
-	cursor: move;
+    margin-bottom: 2px;
+    cursor: move;
 }

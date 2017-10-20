@@ -6,11 +6,11 @@ export const FETCH_TASK = "board/FETCH_TASK";
 export const SUCCEED_FETCH_TASK = "board/SUCCEED_FETCH_TASK";
 export const FAILED_FETCH_TASK = "board/FAILED_FETCH_TASK";
 
-export function addTask(task) {
+export function addTask(text, status) {
   return {
     type: ADD_TASK,
     payload: {
-        task
+        text, status
     }
   }
 }
@@ -35,7 +35,7 @@ export function moveOverColumn(dragPos, columnType) {
   }
 }
 
-function requestFetchTask() {
+export function requestFetchTask() {
   return {
     type: FETCH_TASK
   }

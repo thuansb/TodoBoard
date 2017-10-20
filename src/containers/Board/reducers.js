@@ -1,6 +1,7 @@
-import { 
-    ADD_TASK, 
-    MOVE_OVER_TASK, 
+import maxBy from 'lodash/maxBy';
+import {
+    ADD_TASK,
+    MOVE_OVER_TASK,
     MOVE_OVER_COLUMN,
     FETCH_TASK,
     SUCCEED_FETCH_TASK,
@@ -10,10 +11,20 @@ import {
 const reducer = (state = { taskList: [], fetchingTask: false, fetchError: null }, action) => {
     switch (action.type) {
         case ADD_TASK: {
+            const { text, status } = action.payload;
+            const { taskList } = state;
+            const filtered = state.taskList.filter(task => task.status === status);
+            const maxOrder = maxBy(filtered, task => task.order);
+            const maxId = maxBy(taskList, task => task.id);
             return Object.assign({}, state, {
                 taskList: [
                     ...state.taskList,
-                    action.payload.task
+                    {
+                        id: maxId ? maxId.id + 1 : 0,
+                        text: text,
+                        order: maxOrder ? maxOrder.order + 1 : 0,
+                        status: status
+                    }
                 ]
             });
         }

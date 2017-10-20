@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import Column from 'components/Column';
-import CounterBox from 'components/CounterBox';
+import Column from '../../components/Column';
+import CounterBox from '../../components/CounterBox';
 import { addTask, moveOverColumn, moveOverTask, fetchTask } from './actions';
 import flow from 'lodash/flow';
 import { connect } from 'react-redux';
-import AddNewForm from 'components/AddNewForm';
+import AddNewForm from '../../components/AddNewForm';
 
 const ColumnTypes = {
     TODO: 0,
@@ -14,7 +14,7 @@ const ColumnTypes = {
     DONE: 2
 }
 
-class Board extends Component {
+export class Board extends Component { // export for unitest test
     componentWillMount() {
         this.props.fetchTask('./data.json');
     }
@@ -26,7 +26,7 @@ class Board extends Component {
         return (
             <div className="board">
                 <div className="board__add-form">
-                    <AddNewForm taskList={taskList} addNewTask={addNewTask} initStatus={ColumnTypes.TODO} />
+                    <AddNewForm addNewTask={addNewTask} initStatus={ColumnTypes.TODO} />
                 </div>
                 <div className="board__counter-box">
                     <div>{fetchingTask ? 'loading...' : ''}</div>
@@ -66,7 +66,7 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    addNewTask: (task) => dispatch(addTask(task)),
+    addNewTask: (text, status) => dispatch(addTask(text, status)),
     moveToTask: (dragPos, hoverPos) => dispatch(moveOverTask(dragPos, hoverPos)),
     moveToColumn: (dragPos, columnType) => dispatch(moveOverColumn(dragPos, columnType)),
     fetchTask: (url) => dispatch(fetchTask(url))

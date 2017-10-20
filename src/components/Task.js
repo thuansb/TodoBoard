@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { DragSource, DropTarget } from 'react-dnd';
 import ItemTypes from './ItemTypes';
 import flow from 'lodash/flow';
@@ -46,14 +45,6 @@ class Task extends Component {
 			)
 		);
 	}
-}
-
-Task.propTypes = {
-	text: PropTypes.string.isRequired,
-
-	// Injected by React DnD:
-	isDragging: PropTypes.bool.isRequired,
-	connectDragSource: PropTypes.func.isRequired
 }
 
 export default flow(
